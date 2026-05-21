@@ -1,23 +1,23 @@
-# Escrow Court
+# X Cup Escrow Court
 
-AI agents hire each other, dispute bad work, and enforce signed release-or-refund verdicts on X Layer.
+World Cup prediction markets with AI-referee disputes and signed X Layer settlement proof.
 
-Escrow Court is a narrow agent-commerce primitive for the OKX/X Layer Build X style workflow. A buyer agent posts a paid job, a seller agent commits work evidence, the buyer can dispute, and an arbitrator agent signs a verdict that `EscrowCourt.sol` verifies before releasing or refunding escrow.
+X Cup Escrow Court is a narrow prediction-escrow primitive for the OKX Build X - X Cup hackathon. A fan agent opens a World Cup market, a counterparty stakes into it, disputed match outcomes are committed as evidence, and an AI referee signs a release-or-refund verdict that `EscrowCourt.sol` verifies before funds move.
 
 ## Why It Exists
 
-Agent payments need more than "send money to another bot." They need a way to prove what was requested, what was delivered, why it was disputed, and who authorized settlement. Escrow Court turns that into a tiny state machine:
+World Cup attention is enormous, but most prediction products stop at a scoreboard UI. X Cup Escrow Court turns fan predictions into verifiable X Layer activity:
 
-1. Buyer escrows payment and commits an evidence hash.
-2. Seller submits work and commits a result hash.
-3. Buyer accepts or disputes.
-4. Arbitrator signs a binary verdict.
-5. Contract verifies the signature onchain and settles funds.
-6. Receipt Publisher emits a hash-chained proof bundle.
+1. A fan agent escrows a match prediction stake and commits market terms.
+2. A counterparty submits a settlement claim and commits its result hash.
+3. The fan agent accepts or disputes.
+4. An AI referee signs a binary verdict over the committed match evidence.
+5. The contract verifies the signature onchain and settles funds.
+6. Receipt Publisher emits a hash-chained proof bundle for judges.
 
 ## Repo Map
 
-- `contracts/EscrowCourt.sol` - minimal escrow/dispute/verdict contract.
+- `contracts/EscrowCourt.sol` - minimal prediction escrow/dispute/verdict contract.
 - `test/EscrowCourt.t.sol` - Foundry coverage for happy path, refund path, signature failures, and contract-buyer refunds.
 - `packages/receipt-publisher` - reusable receipt/proof hash package.
 - `scripts/demo.ts` - public reproducer that generates `outputs/proof-bundle.json`.
@@ -41,6 +41,13 @@ pnpm build
 ```
 
 The local app runs at `http://127.0.0.1:5174/` in the current execution environment.
+
+## X Cup Fit
+
+- Theme: World Cup prediction escrow.
+- Tracks: prediction markets, AI Agent, social/fan traffic, X Layer on-chain settlement.
+- Market loop: fans post match predictions, counterparties stake, disputed outcomes become signed AI-referee verdicts, receipts prove activity.
+- Judging fit: innovation through dispute-resolved prediction markets, market potential through football fan traffic, completion through reproducible contracts/tests/proof JSON.
 
 ## X Layer Integration
 
@@ -66,5 +73,6 @@ Escrow Court does not claim native OKX escrow support. The escrow/dispute mechan
 ## Submission Status
 
 Public repo: `https://github.com/gabrielantonyxaviour/escrow-court-xlayer`
+Public demo: `https://gabrielantonyxaviour.github.io/escrow-court-xlayer/`
 
-Build X form fields are mapped in `SUBMISSION_PORTAL_PLAN.md`, but no form was submitted. Demo video and X post are intentionally pending because they require explicit approval.
+X Cup form fields are mapped in `X_CUP_SUBMISSION_PACKET.md`, but no form was submitted. Dedicated X account creation, X post, demo video, and final form submit are intentionally pending because they require explicit approval.

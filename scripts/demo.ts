@@ -28,7 +28,7 @@ const jobId = 1n;
 const amount = 10000000000000000n;
 const releaseToSeller = false;
 const deadline = 1_798_761_600n;
-const verdictURI = 'ipfs://escrow-court/verdict-refund.json';
+const verdictURI = 'ipfs://x-cup-escrow-court/verdict-refund.json';
 
 const verdictTypehash = keccak256(
   stringToHex(
@@ -37,18 +37,22 @@ const verdictTypehash = keccak256(
 );
 
 const evidence = {
-  job: 'token-risk-report',
-  buyerRequest: 'Summarize X Layer agent-commerce risks and cite onchain proof requirements.',
-  requiredSections: ['risk model', 'sponsor fit', 'evidence links'],
+  job: 'argentina-vs-france-prediction-market',
+  match: 'Argentina vs France',
+  market: 'Will Argentina win in regulation time?',
+  buyerRequest:
+    'Stake an X Cup fan prediction, require public match evidence, and settle the pool only after a signed AI referee verdict.',
+  requiredSections: ['match source', 'prediction terms', 'settlement evidence'],
 };
 
 const result = {
-  sellerOutput: 'Generic token report with missing X Layer evidence and no receipt links.',
+  sellerOutput:
+    'Counterparty claimed Argentina won, but supplied no public match source and no settlement evidence link.',
   quality: 'insufficient',
 };
 
 const dispute = {
-  reason: 'Seller missed X Layer-specific proof requirements.',
+  reason: 'Prediction settlement evidence was missing for the World Cup market.',
   requestedOutcome: 'refund',
 };
 
@@ -97,8 +101,8 @@ appendReceipt({
   issuedAt,
   jobId: jobId.toString(),
   kind: 'job-created',
-  summary: 'Buyer escrowed a risk-report job and committed evidence before work began.',
-  payload: { amount: amount.toString(), evidenceHash },
+  summary: 'Fan agent escrowed a World Cup prediction stake and committed market terms.',
+  payload: { amount: amount.toString(), evidenceHash, match: evidence.match, market: evidence.market },
 });
 
 appendReceipt({
@@ -106,8 +110,8 @@ appendReceipt({
   issuedAt,
   jobId: jobId.toString(),
   kind: 'work-submitted',
-  summary: 'Seller submitted weak work with a committed result hash.',
-  payload: { resultHash, resultURI: 'ipfs://escrow-court/result-bad.json' },
+  summary: 'Counterparty submitted a settlement claim with a committed result hash.',
+  payload: { resultHash, resultURI: 'ipfs://x-cup-escrow-court/settlement-claim.json' },
 });
 
 appendReceipt({
@@ -115,7 +119,7 @@ appendReceipt({
   issuedAt,
   jobId: jobId.toString(),
   kind: 'dispute-opened',
-  summary: 'Buyer disputed the result and committed a dispute hash.',
+  summary: 'Fan agent disputed the match settlement and committed the dispute hash.',
   payload: { disputeHash },
 });
 
@@ -124,7 +128,7 @@ appendReceipt({
   issuedAt,
   jobId: jobId.toString(),
   kind: 'verdict-signed',
-  summary: 'Arbitrator signed a refund verdict over the committed evidence bundle.',
+  summary: 'AI referee signed a refund verdict over the committed World Cup evidence bundle.',
   payload: { digest, signature, releaseToSeller },
 });
 
@@ -133,12 +137,19 @@ appendReceipt({
   issuedAt,
   jobId: jobId.toString(),
   kind: 'escrow-settled',
-  summary: 'Escrow settled as refund after onchain signature verification.',
+  summary: 'Prediction escrow settled as refund after onchain signature verification.',
   payload: { recipient: buyer.address, localProofOnly: true },
 });
 
 const bundle: ProofBundle = {
-  project: 'Escrow Court',
+  project: 'X Cup Escrow Court',
+  match: {
+    title: evidence.match,
+    market: evidence.market,
+    theme: 'World Cup prediction escrow',
+    fanTrafficLoop:
+      'Fans create match predictions, counterparties stake into them, and disputed outcomes are resolved by signed AI referee verdicts on X Layer.',
+  },
   chain: {
     name: 'X Layer testnet',
     chainId: Number(chainId),

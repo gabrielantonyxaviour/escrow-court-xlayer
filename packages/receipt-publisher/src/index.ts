@@ -23,6 +23,12 @@ export type Receipt = ReceiptInput & {
 
 export type ProofBundle = {
   project: string;
+  match?: {
+    title: string;
+    market: string;
+    theme: string;
+    fanTrafficLoop: string;
+  };
   chain: {
     name: string;
     chainId: number;

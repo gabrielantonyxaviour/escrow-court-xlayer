@@ -18,30 +18,30 @@ const bundle = proofBundle as ProofBundle;
 
 const timeline = [
   {
-    label: 'Escrow opened',
-    actor: 'buyer',
-    detail: 'Job funded and evidence committed before work began.',
+    label: 'Market opened',
+    actor: 'fan agent',
+    detail: 'World Cup prediction terms and stake were committed before kickoff.',
     hash: bundle.hashes.evidenceHash,
     icon: CircleDollarSign,
   },
   {
-    label: 'Work submitted',
-    actor: 'seller',
-    detail: 'Seller returned a report, then committed its result hash.',
+    label: 'Claim submitted',
+    actor: 'counterparty',
+    detail: 'A settlement claim was committed without enough public match evidence.',
     hash: bundle.hashes.resultHash,
     icon: FileCheck2,
   },
   {
     label: 'Dispute opened',
-    actor: 'buyer',
-    detail: 'Buyer challenged missing X Layer proof requirements.',
+    actor: 'fan agent',
+    detail: 'The fan agent challenged the outcome before funds could move.',
     hash: bundle.hashes.disputeHash,
     icon: TriangleAlert,
   },
   {
     label: 'Verdict settled',
-    actor: 'arbitrator',
-    detail: 'Signed refund verdict is ready for onchain verification.',
+    actor: 'AI referee',
+    detail: 'A signed refund verdict is ready for onchain verification.',
     hash: bundle.verdict.digest,
     icon: Gavel,
   },
@@ -51,8 +51,9 @@ export function App() {
   const copyPacket = async () => {
     await navigator.clipboard.writeText(
       [
-        'Escrow Court',
-        'AI agents hire each other, dispute bad work, and enforce signed verdicts on X Layer.',
+        'X Cup Escrow Court',
+        'World Cup prediction markets with AI-referee disputes and signed X Layer settlement proof.',
+        `Market: ${bundle.match?.market ?? 'World Cup prediction escrow'}`,
         `Agentic Wallet: ${bundle.agents.buyer}`,
         `Receipt root: ${bundle.hashes.receiptRoot}`,
       ].join('\n'),
@@ -61,13 +62,13 @@ export function App() {
 
   return (
     <main className="shell">
-      <section className="court-panel" aria-label="Escrow Court proof dashboard">
+      <section className="court-panel" aria-label="X Cup Escrow Court proof dashboard">
         <nav className="topbar" aria-label="Project">
           <div className="brand-lockup">
             <div className="brand-mark">
               <Gavel size={18} strokeWidth={2.2} />
             </div>
-            <span>Escrow Court</span>
+            <span>X Cup Escrow Court</span>
           </div>
           <div className="nav-pills">
             <a href="https://github.com/gabrielantonyxaviour/escrow-court-xlayer">GitHub</a>
@@ -79,12 +80,13 @@ export function App() {
           <section className="opening">
             <div className="eyebrow">
               <RadioTower size={15} />
-              X Layer agent commerce
+              World Cup prediction escrow on X Layer
             </div>
-            <h1>Agents can go to court.</h1>
+            <h1>Fans can dispute the final whistle.</h1>
             <p>
-              Buyer, seller, and arbitrator agents run a release-or-refund dispute with committed
-              evidence, signed verdicts, and receipt hashes an AI judge can replay.
+              X Cup Escrow Court turns football attention into verifiable on-chain activity:
+              fan agents stake predictions, counterparties commit claims, and an AI referee signs
+              release-or-refund verdicts that judges can replay.
             </p>
             <div className="action-row">
               <a className="primary-action" href="/proof-bundle.json">
@@ -100,8 +102,16 @@ export function App() {
 
           <section className="case-file" aria-label="Current case">
             <div className="section-heading">
-              <span>Case 001</span>
+              <span>X Cup case 001</span>
               <strong>Refund verdict</strong>
+            </div>
+            <div className="case-row">
+              <span>Match</span>
+              <strong>{bundle.match?.title ?? 'World Cup fixture'}</strong>
+            </div>
+            <div className="case-row">
+              <span>Market</span>
+              <strong>{bundle.match?.market ?? 'Prediction escrow'}</strong>
             </div>
             <div className="case-row">
               <span>Chain</span>
@@ -150,8 +160,8 @@ export function App() {
         <section className="proof-grid" aria-label="Proof evidence">
           <EvidencePanel
             icon={<ShieldCheck size={18} />}
-            title="Signed verdict"
-            label="Arbitrator"
+            title="AI-referee verdict"
+            label="Signer"
             value={shortAddress(bundle.verdict.signer)}
             detail={shortHash(bundle.verdict.signature)}
           />
@@ -164,10 +174,10 @@ export function App() {
           />
           <EvidencePanel
             icon={<BadgeCheck size={18} />}
-            title="Judge replay"
+            title="X Cup fit"
             label="Command"
             value="pnpm demo"
-            detail="No private fleet required"
+            detail="Prediction, AI Agent, X Layer"
           />
         </section>
       </section>

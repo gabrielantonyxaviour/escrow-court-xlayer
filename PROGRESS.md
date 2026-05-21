@@ -34,4 +34,5 @@
 ## 2026-05-21T01:04:00Z
 - Wrote final builder report to `outputs/builder-report.md`.
 - Removed redundant intermediate screenshots and ignored local execution scaffolding (`AGENTS.md`, `STATE.json`, `bin/`, `prompts/`, `support/`) so the public repo stays project-focused.
-- Pending final verification: rerun `pnpm test`, commit, and push to `origin`.
+- Reran `pnpm test`; Foundry 5/5, proof generation, and production build passed.
+- Pushed initial implementation to `origin/main` at commit `4034bf6`.

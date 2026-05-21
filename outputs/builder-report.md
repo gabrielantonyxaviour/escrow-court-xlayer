@@ -8,7 +8,7 @@ Escrow Court was built as a real X Layer-oriented escrow primitive: a Solidity e
 - Owner verified: `gabrielantonyxaviour` / `gabrielantony56@gmail.com`
 - Visibility verified: `PUBLIC`, `isPrivate: false`
 - Remote: `origin https://github.com/gabrielantonyxaviour/escrow-court-xlayer.git`
-- Push status at report-write time: final commit and push pending.
+- Push status: initial implementation pushed to `origin/main` at commit `4034bf6`.
 
 ## Submission Portal Status
 - Official Build X page checked with Gabriel Chrome profile. It says `Event ended`; current season shown as `Apr 1, 23:59 - Apr 15, 23:59 UTC`.

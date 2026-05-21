@@ -37,7 +37,7 @@ Autonomous agents cannot safely hire each other if payment is just a blind trans
 - X Post Link: pending; opt-in only.
 
 ## Final Checklist
-- [x] Public GitHub repo created; final push pending.
+- [x] Public GitHub repo created and pushed.
 - [x] Foundry tests pass.
 - [x] Reproducer writes `outputs/proof-bundle.json`.
 - [x] Frontend builds.

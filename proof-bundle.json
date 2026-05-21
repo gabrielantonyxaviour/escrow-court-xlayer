@@ -1,0 +1,108 @@
+{
+  "project": "X Cup Escrow Court",
+  "match": {
+    "title": "Argentina vs France",
+    "market": "Will Argentina win in regulation time?",
+    "theme": "World Cup prediction escrow",
+    "fanTrafficLoop": "Fans create match predictions, counterparties stake into them, and disputed outcomes are resolved by signed AI referee verdicts on X Layer."
+  },
+  "chain": {
+    "name": "X Layer testnet",
+    "chainId": 1952,
+    "rpc": "https://testrpc.xlayer.tech/terigon",
+    "explorer": "https://www.okx.com/web3/explorer/xlayer-test"
+  },
+  "contract": {
+    "localName": "EscrowCourt",
+    "address": "0x1111111111111111111111111111111111111960",
+    "status": "local deterministic proof; live deployment blocked by zero funded Agentic Wallet balance"
+  },
+  "agents": {
+    "buyer": "0xe05fcC23807536bEe418f142D19fa0d21BB0cfF7",
+    "seller": "0x0376AAc07Ad725E01357B1725B5ceC61aE10473c",
+    "arbitrator": "0xBa5359FaC9736E687C39D9613de3E8fa6C7af1ce"
+  },
+  "hashes": {
+    "evidenceHash": "0x5de515b00a1fdefab718c5b401112d6cf885e5dd976f5b0ddeecd4632a818228",
+    "resultHash": "0xf14b5010aa755770d6007be53c893541349c7084c626da4de85f57b37ead5217",
+    "disputeHash": "0xe9a53647d34f69c40fcab89011aa43855b80096865e730daf3d815a98aecda8b",
+    "receiptRoot": "0x0eddbe9d0a002963e9b7a1a9476ad373014b3fc9dd7d7200083df1ec1821ee2b"
+  },
+  "verdict": {
+    "releaseToSeller": false,
+    "deadline": "1798761600",
+    "structHash": "0xef0c248bed91b85d68a95068c429a1936e996c6b7f1a4640ae81183ffab7ea78",
+    "digest": "0xb03486edd1daac87a02db44eafb96d4de5d642464c323e20d7c57553f3f58670",
+    "signature": "0xf93824b47695dfb680a2a0fd1356bc1e807af29ec7eb019352b7dc5f63cfdee37a6f3b0db23fdfdf49d178585649ced18286564c1ab9c4745ad7d46665ccd2db1c",
+    "signer": "0xBa5359FaC9736E687C39D9613de3E8fa6C7af1ce"
+  },
+  "receipts": [
+    {
+      "actor": "0xe05fcC23807536bEe418f142D19fa0d21BB0cfF7",
+      "issuedAt": "2026-05-21T00:44:00.000Z",
+      "jobId": "1",
+      "kind": "job-created",
+      "summary": "Fan agent escrowed a World Cup prediction stake and committed market terms.",
+      "payload": {
+        "amount": "10000000000000000",
+        "evidenceHash": "0x5de515b00a1fdefab718c5b401112d6cf885e5dd976f5b0ddeecd4632a818228",
+        "match": "Argentina vs France",
+        "market": "Will Argentina win in regulation time?"
+      },
+      "receiptHash": "0xbb6924b6ba25f1997f553aca2b3f2a1c343f1170ab1af36441f8f8d13cbb5e4f"
+    },
+    {
+      "actor": "0x0376AAc07Ad725E01357B1725B5ceC61aE10473c",
+      "issuedAt": "2026-05-21T00:44:00.000Z",
+      "jobId": "1",
+      "kind": "work-submitted",
+      "summary": "Counterparty submitted a settlement claim with a committed result hash.",
+      "payload": {
+        "resultHash": "0xf14b5010aa755770d6007be53c893541349c7084c626da4de85f57b37ead5217",
+        "resultURI": "ipfs://x-cup-escrow-court/settlement-claim.json"
+      },
+      "parentHash": "0xbb6924b6ba25f1997f553aca2b3f2a1c343f1170ab1af36441f8f8d13cbb5e4f",
+      "receiptHash": "0x97d21ddc356316707c46f8f0938aeb62e63a8455453d0242f29adcaf8a8d5138"
+    },
+    {
+      "actor": "0xe05fcC23807536bEe418f142D19fa0d21BB0cfF7",
+      "issuedAt": "2026-05-21T00:44:00.000Z",
+      "jobId": "1",
+      "kind": "dispute-opened",
+      "summary": "Fan agent disputed the match settlement and committed the dispute hash.",
+      "payload": {
+        "disputeHash": "0xe9a53647d34f69c40fcab89011aa43855b80096865e730daf3d815a98aecda8b"
+      },
+      "parentHash": "0x97d21ddc356316707c46f8f0938aeb62e63a8455453d0242f29adcaf8a8d5138",
+      "receiptHash": "0x69bc2210d38cdbcc7e89d7d536fe7bbd15cadf4c90064d3c75636534477b75d9"
+    },
+    {
+      "actor": "0xBa5359FaC9736E687C39D9613de3E8fa6C7af1ce",
+      "issuedAt": "2026-05-21T00:44:00.000Z",
+      "jobId": "1",
+      "kind": "verdict-signed",
+      "summary": "AI referee signed a refund verdict over the committed World Cup evidence bundle.",
+      "payload": {
+        "digest": "0xb03486edd1daac87a02db44eafb96d4de5d642464c323e20d7c57553f3f58670",
+        "signature": "0xf93824b47695dfb680a2a0fd1356bc1e807af29ec7eb019352b7dc5f63cfdee37a6f3b0db23fdfdf49d178585649ced18286564c1ab9c4745ad7d46665ccd2db1c",
+        "releaseToSeller": false
+      },
+      "parentHash": "0x69bc2210d38cdbcc7e89d7d536fe7bbd15cadf4c90064d3c75636534477b75d9",
+      "receiptHash": "0xd6a9e6487bb90d63932d281aab522749f3dbbc29a4f78927576d84ae8910535f"
+    },
+    {
+      "actor": "0x1111111111111111111111111111111111111960",
+      "issuedAt": "2026-05-21T00:44:00.000Z",
+      "jobId": "1",
+      "kind": "escrow-settled",
+      "summary": "Prediction escrow settled as refund after onchain signature verification.",
+      "payload": {
+        "recipient": "0xe05fcC23807536bEe418f142D19fa0d21BB0cfF7",
+        "localProofOnly": true
+      },
+      "parentHash": "0xd6a9e6487bb90d63932d281aab522749f3dbbc29a4f78927576d84ae8910535f",
+      "receiptHash": "0x0eddbe9d0a002963e9b7a1a9476ad373014b3fc9dd7d7200083df1ec1821ee2b"
+    }
+  ],
+  "generatedAt": "2026-05-21T00:44:00.000Z"
+}

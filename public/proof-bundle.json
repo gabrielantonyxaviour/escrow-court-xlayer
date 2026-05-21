@@ -1,0 +1,100 @@
+{
+  "project": "Escrow Court",
+  "chain": {
+    "name": "X Layer testnet",
+    "chainId": 1952,
+    "rpc": "https://testrpc.xlayer.tech/terigon",
+    "explorer": "https://www.okx.com/web3/explorer/xlayer-test"
+  },
+  "contract": {
+    "localName": "EscrowCourt",
+    "address": "0x1111111111111111111111111111111111111960",
+    "status": "local deterministic proof; live deployment blocked by zero funded Agentic Wallet balance"
+  },
+  "agents": {
+    "buyer": "0xe05fcC23807536bEe418f142D19fa0d21BB0cfF7",
+    "seller": "0x0376AAc07Ad725E01357B1725B5ceC61aE10473c",
+    "arbitrator": "0xBa5359FaC9736E687C39D9613de3E8fa6C7af1ce"
+  },
+  "hashes": {
+    "evidenceHash": "0xd2010ac59de97c1cb990248eae5eaaf8b54ff5e4f55a7281ed400270a4145ded",
+    "resultHash": "0x66f57a1883aa77ad707c9d7511e5a99bf56cb000e417197ee585f63968eed7df",
+    "disputeHash": "0x6ad68397d4724663356635ceb9cf176c6a3a662c31bb7455f86c570ad5cd7eef",
+    "receiptRoot": "0x3bbcec27115b0fbb6b23ed6e35dc4b07c53b6ab5b53d3166d587221a8543c055"
+  },
+  "verdict": {
+    "releaseToSeller": false,
+    "deadline": "1798761600",
+    "structHash": "0xbae00132560d5f6032e0698b04e240f265f32c83af6436257ab840eb5f299125",
+    "digest": "0xfc3a0516f9806c7861a1ec1ab9d046c2f1126f7d85f1f86b5bab74d6e3292b57",
+    "signature": "0x90b94fa5b70f51d932a568c4a427cc19caa61ca753b1075b2fd6e074af501e4636d9a5144f4dd79e7b3cc8bf73de963f4845fc79b2efc8bcfc20ea9514efbd4a1b",
+    "signer": "0xBa5359FaC9736E687C39D9613de3E8fa6C7af1ce"
+  },
+  "receipts": [
+    {
+      "actor": "0xe05fcC23807536bEe418f142D19fa0d21BB0cfF7",
+      "issuedAt": "2026-05-21T00:44:00.000Z",
+      "jobId": "1",
+      "kind": "job-created",
+      "summary": "Buyer escrowed a risk-report job and committed evidence before work began.",
+      "payload": {
+        "amount": "10000000000000000",
+        "evidenceHash": "0xd2010ac59de97c1cb990248eae5eaaf8b54ff5e4f55a7281ed400270a4145ded"
+      },
+      "receiptHash": "0x03d0aa0cdaed3000fde9f5bfadb6322bba72d4299cd03b17c42827773d20b11a"
+    },
+    {
+      "actor": "0x0376AAc07Ad725E01357B1725B5ceC61aE10473c",
+      "issuedAt": "2026-05-21T00:44:00.000Z",
+      "jobId": "1",
+      "kind": "work-submitted",
+      "summary": "Seller submitted weak work with a committed result hash.",
+      "payload": {
+        "resultHash": "0x66f57a1883aa77ad707c9d7511e5a99bf56cb000e417197ee585f63968eed7df",
+        "resultURI": "ipfs://escrow-court/result-bad.json"
+      },
+      "parentHash": "0x03d0aa0cdaed3000fde9f5bfadb6322bba72d4299cd03b17c42827773d20b11a",
+      "receiptHash": "0xc84e3db74df2c66246019aed4da935825c8ed206019f1c9be2b907a3a4bab1ca"
+    },
+    {
+      "actor": "0xe05fcC23807536bEe418f142D19fa0d21BB0cfF7",
+      "issuedAt": "2026-05-21T00:44:00.000Z",
+      "jobId": "1",
+      "kind": "dispute-opened",
+      "summary": "Buyer disputed the result and committed a dispute hash.",
+      "payload": {
+        "disputeHash": "0x6ad68397d4724663356635ceb9cf176c6a3a662c31bb7455f86c570ad5cd7eef"
+      },
+      "parentHash": "0xc84e3db74df2c66246019aed4da935825c8ed206019f1c9be2b907a3a4bab1ca",
+      "receiptHash": "0xd53e084651d33b0f4ac3e98458902f80fad127aa2ae947966e587947ec398c16"
+    },
+    {
+      "actor": "0xBa5359FaC9736E687C39D9613de3E8fa6C7af1ce",
+      "issuedAt": "2026-05-21T00:44:00.000Z",
+      "jobId": "1",
+      "kind": "verdict-signed",
+      "summary": "Arbitrator signed a refund verdict over the committed evidence bundle.",
+      "payload": {
+        "digest": "0xfc3a0516f9806c7861a1ec1ab9d046c2f1126f7d85f1f86b5bab74d6e3292b57",
+        "signature": "0x90b94fa5b70f51d932a568c4a427cc19caa61ca753b1075b2fd6e074af501e4636d9a5144f4dd79e7b3cc8bf73de963f4845fc79b2efc8bcfc20ea9514efbd4a1b",
+        "releaseToSeller": false
+      },
+      "parentHash": "0xd53e084651d33b0f4ac3e98458902f80fad127aa2ae947966e587947ec398c16",
+      "receiptHash": "0xda21fadb16b9bbb9a88992abb1fa958cecafcda81052612d7dcd60367f8bfa88"
+    },
+    {
+      "actor": "0x1111111111111111111111111111111111111960",
+      "issuedAt": "2026-05-21T00:44:00.000Z",
+      "jobId": "1",
+      "kind": "escrow-settled",
+      "summary": "Escrow settled as refund after onchain signature verification.",
+      "payload": {
+        "recipient": "0xe05fcC23807536bEe418f142D19fa0d21BB0cfF7",
+        "localProofOnly": true
+      },
+      "parentHash": "0xda21fadb16b9bbb9a88992abb1fa958cecafcda81052612d7dcd60367f8bfa88",
+      "receiptHash": "0x3bbcec27115b0fbb6b23ed6e35dc4b07c53b6ab5b53d3166d587221a8543c055"
+    }
+  ],
+  "generatedAt": "2026-05-21T00:44:00.000Z"
+}

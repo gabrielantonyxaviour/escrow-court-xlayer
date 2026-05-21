@@ -1,0 +1,17 @@
+node_modules/
+dist/
+out/
+cache/
+.env
+.env.*
+!.env.example
+broadcast/
+.DS_Store
+*.log
+coverage/
+.Codex/state/dev-server.pid
+AGENTS.md
+STATE.json
+bin/
+prompts/
+support/

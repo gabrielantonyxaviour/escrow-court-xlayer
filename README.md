@@ -4,6 +4,14 @@ World Cup prediction markets with AI-referee disputes and signed X Layer settlem
 
 X Cup Escrow Court is a narrow prediction-escrow primitive for the OKX Build X - X Cup hackathon. A fan agent opens a World Cup market, a counterparty stakes into it, disputed match outcomes are committed as evidence, and an AI referee signs a release-or-refund verdict that `EscrowCourt.sol` verifies before funds move.
 
+## Live Deployment
+
+- Network: X Layer Testnet (chain ID `1952`)
+- `EscrowCourt`: [`0x21B42FA48eD4674D285A1Ac5F93e3FF3aE425408`](https://www.okx.com/web3/explorer/xlayer-test/address/0x21B42FA48eD4674D285A1Ac5F93e3FF3aE425408)
+- Deploy tx: [`0x1d90e64fbb276320e0d26adf7d72c6c25ae38e08bc90079f2ff34f3913f8ba24`](https://www.okx.com/web3/explorer/xlayer-test/tx/0x1d90e64fbb276320e0d26adf7d72c6c25ae38e08bc90079f2ff34f3913f8ba24)
+
+See [`DEPLOYMENTS.md`](./DEPLOYMENTS.md) for full reproduction commands.
+
 ## Why It Exists
 
 World Cup attention is enormous, but most prediction products stop at a scoreboard UI. X Cup Escrow Court turns fan predictions into verifiable X Layer activity:
